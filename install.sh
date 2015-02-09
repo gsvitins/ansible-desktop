@@ -5,11 +5,14 @@
 #  - sets up key auth for localhost (use: ssh 'yourhostname') 
 #  - installs ansible and adds hostname to ansible inventory  
 
+
+# make sure this script is not run as root
 if [ "$EUID" -eq 0 ]; then
     echo "DO NOT run this script as root. You will be asked for sudo password."
     exit 1
 fi
 
+# stop and listen before delete ~/.ssh config
 if [ -d $HOME/.ssh ]; then echo -e -n "~/.ssh folder found. If you continue this folder will be deleted. Continue? (yes/no): " 
     read answer
     case "$answer" in
@@ -26,6 +29,7 @@ if [ -d $HOME/.ssh ]; then echo -e -n "~/.ssh folder found. If you continue this
     esac
 fi    
 
+# ask user for new ssh-passphrase
 echo -e "Enter passphrase for your new ssh-key:"
 read -s passphrase
 
