@@ -21,6 +21,7 @@
         - iotop
         - numix-gtk-theme
         - remmina
+        - qpdfview
 
     - name: Remove unwanted packages
       apt: name={{ item }} state=absent purge=yes
