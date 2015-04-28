@@ -1,0 +1,16 @@
+---
+#playbook.yml
+- hosts: all
+  user: vagrant
+  sudo: True
+  tasks:
+  - name: Update APT package cache
+    apt: update_cache=yes
+
+  - name: Install packages
+    apt: pkg={{item}} state=latest
+    with_items:
+        - vim-nox
+        - htop
+        - iotop
+        - git
