@@ -52,12 +52,14 @@
     - tmux
     - nmap
     - iotop
+    - smartmontools
     - ipython
     - lm-sensors
     - weechat-curses
     - numix-gtk-theme
     - remmina
     - qpdfview
+    - qbittorrent
     - vlc
     - flashplugin-installer
     - bumblebee
