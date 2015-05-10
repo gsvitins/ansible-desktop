@@ -66,6 +66,7 @@
     - nvidia-340
     - spotify-client
     - keepass2
+    - rar
 
 - name: Clone dotfiles git repo
   git: repo=https://github.com/gsvitins/dotfiles.git dest=~/git/dotfiles
