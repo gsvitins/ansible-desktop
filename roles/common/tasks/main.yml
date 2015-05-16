@@ -1,78 +1,18 @@
 ---
-- name: Remove unwanted packages
-  apt: name={{ item }} state=absent purge=yes
-  sudo: yes
-  with_items:
-    - speech-dispatcher
-    - parole
-    - gmusicbrowser
-    - xchat
-    - abiword*
-    - libabiword*
-    - catfish
-    - gimp*
-    - libgimp*
-    - gnumeric*
-    - gnome-mines
-    - gnome-sudoku
-    - mousepad
-    - pidgin*
-    - xfburn
-    - transmission*
+- include: packages.yml
+- include: disable-bluetooth.yml
+- include: nvidia.yml
+
 
 - name: Add numix (xfce4 theme) repository
-  sudo: yes
   apt_repository: repo=ppa:numix/ppa state=present validate_certs=no
-
-- name: Add xorg-edgers repository
-  sudo: yes
-  apt_repository: repo=ppa:xorg-edgers/ppa state=present validate_certs=no
-
-- name: Add Spotify repository
-  sudo: yes
-  apt_repository: repo='deb http://repository.spotify.com stable non-free' state=present
-
-- name: Add Spotify public key
-  sudo: yes
-  apt_key: keyserver=keyserver.ubuntu.com id=94558F59
-
-- name: Update repositories / upgrade packages
-  sudo: yes
-  apt: update_cache=yes upgrade=dist
-
-- name: Install new packages
-  sudo: yes
-  apt: name={{ item }} state=latest
-  with_items:
-    - ansible
-    - vim-nox
-    - git
-    - htop
-    - tree
-    - tmux
-    - nmap
-    - iotop
-    - smartmontools
-    - ipython
-    - lm-sensors
-    - weechat-curses
-    - numix-gtk-theme
-    - remmina
-    - qpdfview
-    - vlc
-    - flashplugin-installer
-    - bumblebee
-    - bumblebee-nvidia
-    - nvidia-340
-    - keepass2
-    - rar
 
 - name: Clone dotfiles git repo
   git: repo=https://github.com/gsvitins/dotfiles.git dest=~/git/dotfiles
 
 - name: Copy .dotfiles from git repo to home folder
+  sudo: no
   copy: src=~/git/dotfiles/ dest=~
 
 - name: Mount /dev/sda as /data
-  sudo: yes
   mount: name=/data src=/dev/mapper/DATA-root fstype=ext4 state=mounted

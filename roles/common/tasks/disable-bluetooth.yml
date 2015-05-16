@@ -1,0 +1,6 @@
+---
+- name: Disable bluetooth adapter on startup
+  lineinfile: dest=/etc/rc.local
+              state=present
+              insertbefore="^exit 0"
+              line="rfkill block bluetooth"

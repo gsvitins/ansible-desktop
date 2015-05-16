@@ -1,0 +1,47 @@
+---
+- name: Remove unwanted packages
+  apt: name={{ item }} state=absent purge=yes
+  with_items:
+    - speech-dispatcher
+    - parole
+    - gmusicbrowser
+    - xchat
+    - abiword*
+    - libabiword*
+    - catfish
+    - gimp*
+    - libgimp*
+    - gnumeric*
+    - gnome-mines
+    - gnome-sudoku
+    - mousepad
+    - pidgin*
+    - xfburn
+    - transmission*
+
+- name: Update repositories / upgrade packages
+  apt: update_cache=yes upgrade=dist
+
+- name: Install new packages
+  apt: name={{ item }} state=latest
+  with_items:
+    - ansible
+    - vim-nox
+    - git
+    - htop
+    - tree
+    - tmux
+    - nmap
+    - iotop
+    - smartmontools
+    - ipython
+    - lm-sensors
+    - weechat-curses
+    - numix-gtk-theme
+    - remmina
+    - qpdfview
+    - vlc
+    - flashplugin-installer
+    - keepass2
+    - rar
+

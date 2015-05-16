@@ -1,0 +1,13 @@
+---
+- name: Add xorg-edgers repository
+  apt_repository: repo=ppa:xorg-edgers/ppa state=present validate_certs=no
+
+- name: Update apt repository
+  apt_
+
+- name: Add packages for Nvidia GPU
+  apt: name={{ item }}
+  with_items:
+    - bumblebee
+    - bumblebee-nvidia
+    - nvidia-340
