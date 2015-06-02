@@ -31,6 +31,7 @@
     - htop
     - tree
     - tmux
+    - curl
     - nmap
     - iotop
     - smartmontools
