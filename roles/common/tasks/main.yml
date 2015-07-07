@@ -2,6 +2,7 @@
 - include: packages.yml
 - include: disable-bluetooth.yml
 - include: nvidia.yml
+- include: lightdm.yml
 
 
 - name: Add numix (xfce4 theme) repository

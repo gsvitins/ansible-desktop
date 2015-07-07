@@ -3,13 +3,13 @@
   get_url: url=https://dl.bintray.com/mitchellh/vagrant/vagrant_{{ vagrant_version }}_x86_64.deb dest=/home/bxz/Downloads/vagrant_{{ vagrant_version }}_x86_64.deb
 
 - name: Install vagrant
-  sudo: yes
   apt: deb=/home/bxz/Downloads/vagrant_{{ vagrant_version }}_x86_64.deb
 
 - name: Create vagrant directory
   file: path=/home/bxz/vagrant state=directory
 
 - name: Install Vagrantfile
+  sudo: no
   copy: src=Vagrantfile dest=~/vagrant/Vagrantfile
 
 - name: Add vagrant boxes

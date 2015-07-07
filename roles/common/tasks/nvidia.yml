@@ -2,8 +2,8 @@
 - name: Add xorg-edgers repository
   apt_repository: repo=ppa:xorg-edgers/ppa state=present validate_certs=no
 
-- name: Update apt repository
-  apt_
+- name: Update apt cache
+  apt: update_cache=yes
 
 - name: Add packages for Nvidia GPU
   apt: name={{ item }}

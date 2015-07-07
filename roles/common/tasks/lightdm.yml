@@ -1,0 +1,6 @@
+---
+- name: Copy wallpaper to /usr/share/pixmaps
+  copy: src=lightdm-wallpaper.jpg dest=/usr/share/pixmaps/lightdm-wallpaper.jpg owner=root group=root mode=0644
+
+- name: Copy lightdm config
+  copy: src=lightdm-gtk-greeter.conf dest=/etc/lightdm/lightdm-gtk-greeter.conf owner=root group=root mode=0644
