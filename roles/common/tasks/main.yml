@@ -1,19 +1,9 @@
 ---
 - include: packages.yml
 - include: disable-bluetooth.yml
-- include: nvidia.yml
+  #- include: nvidia.yml
 - include: lightdm.yml
+- include: dotfiles.yml
+- include: mounts.yml
+- include: numix.yml
 
-
-- name: Add numix (xfce4 theme) repository
-  apt_repository: repo=ppa:numix/ppa state=present validate_certs=no
-
-- name: Clone dotfiles git repo
-  git: repo=https://github.com/gsvitins/dotfiles.git dest=~/git/dotfiles
-
-- name: Copy .dotfiles from git repo to home folder
-  sudo: no
-  copy: src=~/git/dotfiles/ dest=~
-
-- name: Mount /dev/sda as /data
-  mount: name=/data src=/dev/mapper/DATA-root fstype=ext4 state=mounted

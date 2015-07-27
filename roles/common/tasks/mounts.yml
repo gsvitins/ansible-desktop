@@ -1,0 +1,4 @@
+---
+- name: Mount /dev/sda as /data
+  mount: name=/data src=/dev/mapper/DATA-root fstype=ext4 state=mounted
+

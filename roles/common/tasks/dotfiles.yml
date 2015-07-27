@@ -1,0 +1,8 @@
+---
+- name: Clone dotfiles git repo
+  git: repo=https://github.com/gsvitins/dotfiles.git dest=~/git/dotfiles
+
+- name: Copy .dotfiles from git repo to home folder
+  sudo: no
+  copy: src=~/git/dotfiles/ dest=~
+

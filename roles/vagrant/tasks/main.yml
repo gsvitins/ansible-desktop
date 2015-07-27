@@ -8,10 +8,14 @@
 - name: Create vagrant directory
   file: path=/home/bxz/vagrant state=directory
 
-- name: Install Vagrantfile
+- name: Copy Vagrantfile
   sudo: no
   copy: src=Vagrantfile dest=~/vagrant/Vagrantfile
 
-- name: Add vagrant boxes
-  command: vagrant box add ubuntu/trusty64 chdir=/home/bxz/vagrant
+- name: Copy ansible playbooks
+  sudo: no
+  copy: src=ansible/ dest=~/vagrant/ansible/
+
+  #- name: Add vagrant boxes
+  #command: vagrant box add ubuntu/trusty64 chdir=/home/bxz/vagrant
 

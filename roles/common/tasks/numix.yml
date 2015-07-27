@@ -1,0 +1,6 @@
+---
+- name: Add numix (xfce4 theme) repository
+  apt_repository: repo=ppa:numix/ppa state=present validate_certs=no
+
+- name: Update apt repositories and install Numix theme
+  apt: name=numix-gtk-theme update_cache=yes

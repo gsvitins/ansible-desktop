@@ -15,12 +15,12 @@ Vagrant.configure("2") do |config|
    end
 
   config.vm.define "s3" do |s3|
-    s3.vm.box = "ubuntu/trusty64"
+    s3.vm.box = "chef/centos-7.0"
     s3.vm.hostname = "s3"
     s3.vm.network "public_network", bridge: "wlan0", ip: "10.10.10.113"
    end
 
-  config.vm.provider "virtualbox" do |v|
+  config.vm.provider "virtualbox" do |v| 
     v.memory = 1024
     v.cpus = 1
   end
