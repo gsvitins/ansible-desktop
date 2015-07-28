@@ -1,2 +1,4 @@
 ---
 vagrant_version: "1.7.4"
+vagrant_dir: "/home/bxz/vagrant"
+vagrant_dl_dir: "/tmp"
