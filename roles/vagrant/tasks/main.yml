@@ -1,21 +1,21 @@
 ---
 - name: Download vagrant package
-  get_url: url=https://dl.bintray.com/mitchellh/vagrant/vagrant_{{ vagrant_version }}_x86_64.deb dest=/home/bxz/Downloads/vagrant_{{ vagrant_version }}_x86_64.deb
+  get_url: url=https://dl.bintray.com/mitchellh/vagrant/vagrant_{{ vagrant_version }}_x86_64.deb dest={{ vagrant_dl_dir }}/vagrant_{{ vagrant_version }}_x86_64.deb
 
 - name: Install vagrant
-  apt: deb=/home/bxz/Downloads/vagrant_{{ vagrant_version }}_x86_64.deb
+  apt: deb={{ vagrant_dl_dir }}/vagrant_{{ vagrant_version }}_x86_64.deb
 
 - name: Create vagrant directory
-  file: path=/home/bxz/vagrant state=directory
+  file: path={{ vagrant_dir }} state=directory
 
 - name: Copy Vagrantfile
   sudo: no
-  copy: src=Vagrantfile dest=~/vagrant/Vagrantfile
+  copy: src=Vagrantfile dest={{ vagrant_dir }}/Vagrantfile
 
 - name: Copy ansible playbooks
   sudo: no
-  copy: src=ansible/ dest=~/vagrant/ansible/
+  copy: src=ansible/ dest={{ vagrant_dir}}/ansible/
 
   #- name: Add vagrant boxes
-  #command: vagrant box add ubuntu/trusty64 chdir=/home/bxz/vagrant
+  #command: vagrant box add ubuntu/trusty64 chdir={{ vagrant_dir }}
 
