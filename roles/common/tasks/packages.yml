@@ -37,6 +37,7 @@
     - iftop
     - smartmontools
     - ipython
+    - python-flake8
     - lm-sensors
     - weechat-curses
     - remmina
