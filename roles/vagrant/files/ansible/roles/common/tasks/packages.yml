@@ -1,0 +1,13 @@
+---
+- name: Update repositories and packages
+  apt: update_cache=yes upgrade=yes
+
+- name: Install packages
+  apt: name={{ item }} state=latest
+  with_items:
+    - vim-nox
+    - tree
+    - git
+    - htop
+    - tmux
+

@@ -1,15 +1,4 @@
 ---
-- name: Update repositories
-  apt: update_cache=yes
+- include: packages.yml
+- include: dotfiles.yml
 
-- name: Upgrade packages
-  apt: upgrade=yes
-
-- name: Install packages
-  apt: name={{ item }} state=latest
-  with_items:
-    - vim-nox
-    - tree
-    - git
-    - htop
-    - tmux
