@@ -1,0 +1,4 @@
+---
+name: Set up system locale
+shell: locale-gen lv_LV lv_LV.UTF-8
+
