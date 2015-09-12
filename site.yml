@@ -1,10 +1,16 @@
 ---
-- hosts: all
+- hosts: lasus
   remote_user: bxz
-  sudo: yes
+sudo: yes
   roles:
     - common
     - virtualbox
     - vagrant
     - spotify
     - qpdfview
+
+- hosts: vps
+  remote_user: bxz
+  sudo: yes
+  roles:
+    - fail2ban
