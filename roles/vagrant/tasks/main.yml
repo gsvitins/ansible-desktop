@@ -2,6 +2,7 @@
 - name: Check if vagrant is installed
   shell: dpkg-query -W vagrant
   register: vagrant_check
+  ignore_errors: True
 
 - name: Download vagrant package
   get_url: url=https://dl.bintray.com/mitchellh/vagrant/vagrant_{{ vagrant_version }}_x86_64.deb dest={{ vagrant_dl_dir }}/vagrant_{{ vagrant_version }}_x86_64.deb
@@ -12,6 +13,7 @@
   when: vagrant_check.rc != 0
 
 - name: Create vagrant directory
+  sudo: no
   file: path={{ vagrant_dir }} state=directory
 
 - name: Copy Vagrantfile
