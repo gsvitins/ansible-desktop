@@ -18,6 +18,7 @@
     - pidgin*
     - xfburn
     - transmission*
+    - evince
 
 - name: Update repositories / upgrade packages
   apt: update_cache=yes upgrade=dist
