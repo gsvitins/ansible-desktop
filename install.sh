@@ -54,4 +54,4 @@ ssh-copy-id $HOSTNAME
 ssh-agent bash 
 
 # exec ansible-playbook
-ansible-playbook tasks.yml
+ansible-playbook site.yml
