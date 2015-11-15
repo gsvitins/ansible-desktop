@@ -1,0 +1,7 @@
+---
+- name: Add Canonical partners repository
+  apt_repository: repo='deb http://archive.canonical.com/ubuntu trusty partner' state=present update_cache=yes
+
+- name: Install Skype
+  apt: name=skype state=latest
+

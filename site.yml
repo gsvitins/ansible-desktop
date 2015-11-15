@@ -4,10 +4,12 @@
   sudo: yes
   roles:
     - common
+    - compton
     - virtualbox
     - vagrant
     - spotify
     - qpdfview
+    - skype
 
 - hosts: vps
   remote_user: bxz

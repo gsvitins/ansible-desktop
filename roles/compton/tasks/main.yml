@@ -1,19 +1,21 @@
 ---
-- hosts: all
-  tasks:
-    - name: Add compton repository 
-      sudo: yes
-      apt_repository: repo=ppa:richardgv/compton state=present
+- name: Add compton repository
+  sudo: yes
+  apt_repository: repo=ppa:richardgv/compton state=present
 
-    - name: Install compton
-      sudo: yes
-      apt: name=compton state=latest
+- name: Install compton
+  sudo: yes
+  apt: name=compton state=latest
 
-    - name: Add compton.conf
-      sudo: no
-      copy: src=files/compton.conf dest=~/.config/compton.conf
+- name: Add compton.conf
+  sudo: no
+  copy: src=compton.conf dest=~/.config/compton.conf
 
-    - name: Enable compton on xfce session start
-      sudo: no
-      copy: src=files/compton.desktop dest=~/.config/autostart/compton.desktop
+- name: Create autostart dir
+  sudo: no
+  file: path=~/.config/autostart state=directory mode=0755
+
+- name: Enable compton on xfce session start
+  sudo: no
+  copy: src=compton.desktop dest=~/.config/autostart/compton.desktop
 
