@@ -34,6 +34,7 @@
     - tmux
     - curl
     - nmap
+    - whois
     - iotop
     - iftop
     - smartmontools
