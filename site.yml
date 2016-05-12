@@ -1,5 +1,5 @@
 ---
-- hosts: lasus
+- hosts: all
   remote_user: bxz
   sudo: yes
   roles:
@@ -10,6 +10,7 @@
     - spotify
     - qpdfview
     - skype
+    - docker
 
 - hosts: vps
   remote_user: bxz

@@ -34,8 +34,8 @@ echo -e "Enter passphrase for your new ssh-key:"
 read -s passphrase
 
 # install ansible and ssh server 
-sudo apt-get install software-properties-common
-sudo apt-add-repository ppa:ansible/ansible -y
+#sudo apt-get install software-properties-common
+#sudo apt-add-repository ppa:ansible/ansible -y
 sudo apt-get update
 sudo apt-get install openssh-server ansible -y  
 
@@ -51,7 +51,7 @@ sudo sed -i 's/^%sudo.*$/%sudo ALL=(ALL:ALL) NOPASSWD: ALL/' /etc/sudoers
 # generate ssh keys and enable key-auth locally 
 ssh-keygen -t rsa -b 4096 -N "$passphrase" -f $HOME/.ssh/id_rsa
 ssh-copy-id $HOSTNAME
-ssh-agent bash 
+ssh-add
 
 # exec ansible-playbook
 ansible-playbook site.yml

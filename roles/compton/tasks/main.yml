@@ -1,8 +1,4 @@
 ---
-- name: Add compton repository
-  sudo: yes
-  apt_repository: repo=ppa:richardgv/compton state=present
-
 - name: Install compton
   sudo: yes
   apt: name=compton state=latest
