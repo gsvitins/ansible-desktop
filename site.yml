@@ -11,6 +11,7 @@
     - qpdfview
     - skype
     - docker
+    - terminator
 
 - hosts: vps
   remote_user: bxz

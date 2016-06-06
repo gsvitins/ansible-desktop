@@ -1,0 +1,56 @@
+[global_config]
+  handle_size = -3
+  title_hide_sizetext = True
+  focus = system
+  title_transmit_fg_color = "#cccccc"
+  title_inactive_fg_color = "#929292"
+  suppress_multiple_term_dialog = True
+  enabled_plugins = CustomCommandsMenu, LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
+  geometry_hinting = False
+  title_transmit_bg_color = "#808080"
+  inactive_color_offset = 1.0
+  title_inactive_bg_color = "#3d3d3d"
+[keybindings]
+  switch_to_tab_1 = <Alt>1
+  cycle_next = <Shift><Alt>Tab
+  next_tab = <Shift><Alt>t
+  go_up = <Shift><Alt>k
+  close_window = <Shift><Alt>q
+  split_horiz = <Shift><Alt>o
+  switch_to_tab_4 = <Alt>4
+  switch_to_tab_5 = <Alt>5
+  switch_to_tab_6 = <Alt>6
+  switch_to_tab_7 = <Alt>7
+  go_down = <Shift><Alt>j
+  close_term = <Shift><Alt>w
+  switch_to_tab_2 = <Alt>2
+  go_right = <Shift><Alt>l
+  go_left = <Shift><Alt>h
+  split_vert = <Shift><Alt>p
+  switch_to_tab_8 = <Alt>8
+  switch_to_tab_3 = <Alt>3
+[profiles]
+  [[default]]
+    scrollbar_position = hidden
+    palette = "#000000:#aa0000:#00aa00:#aa5500:#0000aa:#aa00aa:#00aaaa:#aaaaaa:#555555:#ff5555:#55ff55:#ffff55:#5555ff:#ff55ff:#55ffff:#ffffff"
+    background_image = None
+    background_darkness = 0.94
+    scrollback_lines = 1000
+    background_type = transparent
+    use_system_font = False
+    cursor_color = "#a3a3a3"
+    foreground_color = "#b6b4b4"
+    icon_bell = False
+    font = Monospace 10
+    background_color = "#131926"
+    scrollback_infinite = True
+[layouts]
+  [[default]]
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = default
+    [[[window0]]]
+      type = Window
+      parent = ""
+[plugins]

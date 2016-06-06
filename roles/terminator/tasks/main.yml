@@ -1,0 +1,19 @@
+---
+- name: install terminator
+  apt: name=terminator state=latest
+
+- name: create terminator config dir
+  sudo: no
+  file: path=~/.config/terminator state=directory mode=0755
+
+- name: copy terminator config file to it's location
+  sudo: no
+  copy: src=config dest=~/.config/terminator/config force=yes
+
+- name: change xfce4 'primary + alt + t' keybind to launch terminator
+  sudo: no
+  lineinfile: dest=~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml regexp='TerminalEmulator' line='      <property name="&lt;Primary&gt;&lt;Alt&gt;t" type="string" value="terminator -m"/>'
+
+- name: change xfce4 'super + t' keybing to launch terminator
+  sudo: no
+  lineinfile: dest=~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml regexp='TerminalEmulator' line='      <property name="&lt;Primary&gt;&lt;Alt&gt;t" type="string" value="terminator -m"/>'
