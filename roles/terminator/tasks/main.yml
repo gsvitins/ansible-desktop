@@ -1,4 +1,7 @@
 ---
+- name: add terminator ppa
+  apt_repository: repo='ppa:gnome-terminator/ppa' update_cache=yes
+
 - name: install terminator
   apt: name=terminator state=latest
 
