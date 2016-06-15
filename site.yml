@@ -5,16 +5,12 @@
   roles:
     - common
     - compton
-    - virtualbox
-    - vagrant
-    - spotify
+    - docker
+    - pulseaudio-equalizer
     - qpdfview
     - skype
-    - docker
+    - spotify
     - terminator
+    - vagrant
+    - virtualbox
 
-- hosts: vps
-  remote_user: bxz
-  sudo: yes
-  roles:
-    - fail2ban

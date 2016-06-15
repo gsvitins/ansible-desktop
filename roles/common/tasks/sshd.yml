@@ -1,0 +1,9 @@
+---
+- name: replace sshd_config file
+  become: yes
+  become_user: root
+  template: src=sshd_config.j2 dest=/etc/sshd_config owner=root group=root mode=0644
+  notify:
+    - restart sshd
+
+
