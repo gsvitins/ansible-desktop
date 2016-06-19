@@ -5,5 +5,8 @@
 - name: install docker engine
   apt: name=docker-engine state=latest force=yes
 
+- name: add user to docker group
+  user: name={{ docker_user }} groups=docker append=yes
+
 - name: start docker service
   service: name=docker state=started
