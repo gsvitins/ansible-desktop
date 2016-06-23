@@ -40,6 +40,7 @@
     - smartmontools
     - ipython
     - python-flake8
+    - flake8
     - lm-sensors
     - weechat-curses
     - remmina
