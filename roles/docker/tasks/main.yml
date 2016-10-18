@@ -5,6 +5,9 @@
 - name: install docker engine
   apt: name=docker-engine state=latest force=yes
 
+- name: install latest docker-compose
+  command: pip install docker-compose
+
 - name: add user to docker group
   user: name={{ docker_user }} groups=docker append=yes
 
