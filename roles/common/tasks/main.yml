@@ -6,5 +6,3 @@
 - include: dotfiles.yml
 - include: mounts.yml
 - include: numix.yml
-- include: sshd.yml
-

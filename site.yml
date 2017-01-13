@@ -1,7 +1,10 @@
 ---
 - hosts: all
   remote_user: bxz
-  sudo: yes
+  become: yes
+  become_user: root
+  vars:
+    desktop_user: bxz
   roles:
     - common
     - compton
@@ -10,6 +13,7 @@
     - qpdfview
     - skype
     - spotify
+    - sshd
     - terminator
     - vagrant
     - virtualbox

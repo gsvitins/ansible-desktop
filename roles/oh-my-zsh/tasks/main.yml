@@ -1,0 +1,20 @@
+---
+- name: install zsh package
+  apt:
+    name: zsh
+    state: latest
+
+- name: clone oh-my-zsh repository to ~/.oh-my-zsh
+  become: no
+  git:
+    repo: git://github.com/robbyrussell/oh-my-zsh.git
+    dest: ~/.oh-my-zsh
+
+- name: install zshrc template
+  become: no
+  template:
+    src: zshrc.j2
+    dest: ~/.zshrc
+    owner: {{ desktop_user }}
+    group: {{ desktop_user }}
+    mode: 
