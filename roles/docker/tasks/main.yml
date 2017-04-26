@@ -1,15 +1,27 @@
 ---
 - name: add docker repository
-  apt_repository: repo='deb https://apt.dockerproject.org/repo ubuntu-{{ ansible_distribution_release }} main' update_cache=yes
+  apt_repository:
+    repo: 'deb https://apt.dockerproject.org/repo ubuntu-{{ ansible_distribution_release }} main'
+    update_cache: yes
 
-- name: install docker engine
-  apt: name=docker-engine state=latest force=yes
+- name: install docker-engine package
+  apt:
+    name: docker-engine
+    state: latest
 
-- name: install latest docker-compose
-  command: pip install docker-compose
+- name: install latest docker-compose package
+  apt:
+    name: docker-compose
+    state: latest
 
-- name: add user to docker group
-  user: name={{ docker_user }} groups=docker append=yes
+- name: add users to docker group
+  user:
+    name:{{ item }}
+    groups=docker
+    append=yes
+  with_items: {{ docker_users }}
 
 - name: start docker service
-  service: name=docker state=started
+  service:
+    name: docker
+    state: started
