@@ -1,0 +1,15 @@
+---
+- name: install openssh-server package
+  apt:
+    name: openssh-server
+    state: latest
+
+- name: install sshd_config template
+  template:
+    src: sshd_config.j2
+    dest: /etc/sshd_config
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - restart sshd

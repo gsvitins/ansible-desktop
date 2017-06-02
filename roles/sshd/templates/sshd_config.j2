@@ -1,0 +1,47 @@
+Port {{ sshd_port }}
+ListenAddress {{ sshd_listen_ip }}
+Protocol {{ sshd_protocol }}
+HostKey /etc/ssh/ssh_host_rsa_key
+HostKey /etc/ssh/ssh_host_dsa_key
+HostKey /etc/ssh/ssh_host_ecdsa_key
+HostKey /etc/ssh/ssh_host_ed25519_key
+UsePrivilegeSeparation {{ sshd_use_privilege_separation }}
+KeyRegenerationInterval {{ sshd_key_regeneration_interval }}
+ServerKeyBits {{ sshd_server_key_bits }}
+SyslogFacility {{ sshd_syslog_facility }}
+LogLevel {{ sshd_log_level }}
+LoginGraceTime {{ sshd_login_grace_time }}
+PermitRootLogin {{ sshd_permit_root_login }}
+StrictModes {{ sshd_strict_modes }}
+RSAAuthentication yes
+PubkeyAuthentication {{ sshd_pub_key_auth }}
+KerberosAuthentication {{ sshd_kerberos_auth }}
+IgnoreRhosts {{ sshd_ignore_rhosts }}
+IgnoreUserKnownHosts {{ sshd_ignore_user_known_hosts }}
+RhostsRSAAuthentication {{ sshd_rhosts_rsa_auth }}
+HostbasedAuthentication {{ sshd_host_based_auth }}
+PermitEmptyPasswords {{ sshd_permit_empty_passwords }}
+ChallengeResponseAuthentication {{ sshd_challenge_response_auth }}
+PasswordAuthentication {{ sshd_password_auth }}
+X11Forwarding {{ sshd_x11_forwarding }}
+X11DisplayOffset {{ sshd_x11_display_offset }}
+PrintMotd {{ sshd_print_motd }}
+PrintLastLog {{ sshd_print_last_log }}
+TCPKeepAlive {{ sshd_tcp_keep_alive }}
+AcceptEnv LANG LC_*
+Subsystem {{ sshd_subsystem }} 
+UsePAM {{ sshd_use_pam }}
+AllowUsers {{ sshd_allow_users }}
+AllowGroups {{ sshd_allow_groups }}
+DenyUsers {{ sshd_deny_users }}
+DenyGroups {{ sshd_deny_groups }}
+Banner {{ sshd_banner_file }}
+Compression {{ sshd_compression }}
+MaxAuthTries {{ sshd_max_auth_tries }}
+MaxSessions {{ sshd_max_sessions }}
+MaxStartups {{ sshd_max_startups }}
+PermitTunnel {{ sshd_permit_tunnel }}
+PermitTTY {{ sshd_permit_tty }}
+RevokedKeys {{ sshd_revoked_keys_file }}
+UseDNS {{ sshd_use_dns }}
+UseLogin {{ sshd_use_login }}

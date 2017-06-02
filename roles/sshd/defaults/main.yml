@@ -1,0 +1,43 @@
+---
+sshd_port: 22
+sshd_protocol: 2                   # 1/2/1,2
+sshd_listen_ip: ''                 # host/ip/ip:port
+sshd_login_grace_time: 120
+sshd_password_auth: yes
+sshd_pub_key_auth: yes
+sshd_permit_root_login: yes        # yes/no/prohibit-password/without-password
+sshd_permit_empty_passwords: no
+sshd_permit_tunnel: no             # yes/no/point-to-point/ethernet
+sshd_permit_tty: yes
+sshd_host_based_auth: no
+sshd_rhosts_rsa_auth: no
+sshd_kerberos_auth: no
+sshd_ignore_rhosts: yes
+sshd_ignore_user_known_hosts: no
+sshd_challenge_response_auth: yes
+sshd_tcp_keep_alive: yes
+sshd_banner_file: none
+sshd_compression: delayed          # yes/no/delayed
+sshd_log_level: INFO               # QUIET/FATAL/ERROR/INFO/VERBOSE/DEBUG
+sshd_syslog_facility: AUTH         # DAEMON/USER/AUTH/LOCAL0-7
+sshd_revoked_keys_file: ''
+sshd_max_auth_tries: 6
+sshd_max_sessions: 10
+sshd_max_startups: 10
+sshd_print_motd: yes
+sshd_print_last_log: yes
+sshd_server_key_bits: 1024
+sshd_key_regeneration_interval: 3600
+sshd_subsystem: 'sftp /usr/lib/openssh/sftp-server'
+sshd_strict_modes: yes
+sshd_use_dns: no
+sshd_use_login: no
+sshd_use_pam: yes
+sshd_use_privilege_separation: yes
+sshd_x11_forwarding: no
+sshd_x11_display_offset: 10
+sshd_allow_users: ''
+sshd_allow_groups: ''
+sshd_deny_users: ''
+sshd_deny_groups: ''
+

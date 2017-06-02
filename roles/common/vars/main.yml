@@ -1,3 +1,0 @@
----
-ssh_port: 22
-ssh_permit_pwd_auth: "no"

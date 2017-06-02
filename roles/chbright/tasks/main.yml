@@ -13,8 +13,14 @@
     group: root
     mode: 0755
 
-- name: create xfce4 keyboard shortcut for chbright
+- name: create xfce4 keyboard shortcut for chbright +
   lineinfile:
     dest: /home/{{ chbright_user }}/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
     insertafter: "^.*xfce4-screenshooter -w"
     line: '      <property name="&lt;Shift&gt;&lt;Alt&gt;Right" type="string" value="sudo chbright -i 1"/>'
+
+- name: create xfce4 keyboard shortcut for chbright -
+  lineinfile:
+    dest: /home/{{ chbright_user }}/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
+    insertafter: "^.*xfce4-screenshooter -w"
+    line: '      <property name="&lt;Shift&gt;&lt;Alt&gt;Right" type="string" value="sudo chbright -i -1"/>'
