@@ -1,16 +1,18 @@
 ---
-- hosts: all
+- name: provision desktop
+  hosts: lasus
   remote_user: bxz
-  sudo: yes
+  become: yes
   roles:
-    - common
-    - compton
-    - docker
-    - pulseaudio-equalizer
-    - qpdfview
-    - skype
-    - spotify
-    - terminator
-    - vagrant
-    - virtualbox
+    #- common
+    #- compton
+    #- docker
+    #- pulseaudio-equalizer
+    #- qpdfview
+    #- skype
+    #- spotify
+    #- terminator
+    #- vagrant
+    #- virtualbox
+    - chbright
 
