@@ -3,7 +3,6 @@
   hosts: lasus
   remote_user: bxz
   become: yes
-<<<<<<< HEAD
   roles:
     #- common
     #- compton
@@ -16,7 +15,6 @@
     #- vagrant
     #- virtualbox
     - chbright
-=======
   become_user: root
   vars:
     docker_users: bxz
@@ -32,5 +30,4 @@
     - terminator
     - vagrant
     - virtualbox
->>>>>>> e0ffe38735309bae93e9289462967f9ef0e49431
 

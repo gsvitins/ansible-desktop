@@ -1,0 +1,4 @@
+---
+vagrant_version: "2.0.0"
+vagrant_dir: "/home/{{ ansible_env.USER }}/vagrant"
+vagrant_dl_dir: "/tmp"

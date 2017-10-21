@@ -1,0 +1,9 @@
+---
+- name: install vagrant
+  hosts: lasus
+  remote_user: bxz
+  become: yes
+  become_user: root
+  roles:
+    - vagrant
+

@@ -1,8 +1,0 @@
----
-- name: Clone dotfiles git repo
-  sudo: no
-  git: repo=https://github.com/gsvitins/dotfiles.git dest=~/git/dotfiles
-
-- name: Execute dotfiles install script
-  sudo: no
-  shell: chdir=~/git/dotfiles ~/git/dotfiles/install.sh
