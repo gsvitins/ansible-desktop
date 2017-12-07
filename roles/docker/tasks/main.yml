@@ -14,11 +14,6 @@
     name: docker-ce
     state: latest
 
-- name: install latest docker-compose package
-  apt:
-    name: docker-compose
-    state: latest
-
 - name: add users to docker group
   user:
     name: "{{ item }}"

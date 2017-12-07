@@ -6,4 +6,6 @@
   become_user: root
   roles:
     - docker
+    - docker-compose
+
 
