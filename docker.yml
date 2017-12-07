@@ -1,0 +1,9 @@
+---
+- name: install docker
+  hosts: all
+  remote_user: bxz
+  become: yes
+  become_user: root
+  roles:
+    - docker
+

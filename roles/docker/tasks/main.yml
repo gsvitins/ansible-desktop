@@ -1,12 +1,17 @@
 ---
+- name: add docker gpg key
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+
 - name: add docker repository
   apt_repository:
-    repo: 'deb https://apt.dockerproject.org/repo ubuntu-{{ ansible_distribution_release }} main'
+    repo: 'deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable'
     update_cache: yes
 
-- name: install docker-engine package
+- name: install docker-ce package
   apt:
-    name: docker-engine
+    name: docker-ce
     state: latest
 
 - name: install latest docker-compose package
@@ -16,10 +21,10 @@
 
 - name: add users to docker group
   user:
-    name:{{ item }}
-    groups=docker
-    append=yes
-  with_items: {{ docker_users }}
+    name: "{{ item }}"
+    groups: docker
+    append: yes
+  with_items: "{{ docker_users }}"
 
 - name: start docker service
   service:
