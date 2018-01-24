@@ -1,0 +1,9 @@
+---
+- name: install and configure terminator
+  hosts: all
+  remote_user: bxz
+  vars:
+    terminator_user: bxz
+  roles:
+    - terminator
+

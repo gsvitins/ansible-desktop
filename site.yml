@@ -3,21 +3,10 @@
   hosts: lasus
   remote_user: bxz
   become: yes
-  roles:
-    #- common
-    #- compton
-    #- docker
-    #- pulseaudio-equalizer
-    #- qpdfview
-    #- skype
-    #- spotify
-    #- terminator
-    #- vagrant
-    #- virtualbox
-    - chbright
   become_user: root
   vars:
     docker_users: bxz
+    terminator_user: bxz
   roles:
     - common
     - compton
@@ -30,4 +19,5 @@
     - terminator
     - vagrant
     - virtualbox
+    - chbright
 
