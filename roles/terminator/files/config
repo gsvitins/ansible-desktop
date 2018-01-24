@@ -7,7 +7,7 @@
   suppress_multiple_term_dialog = True
   enabled_plugins = CustomCommandsMenu, LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
   geometry_hinting = False
-  title_transmit_bg_color = "#808080"
+  title_transmit_bg_color = "#ffa300"
   inactive_color_offset = 1.0
   title_inactive_bg_color = "#3d3d3d"
 [keybindings]
