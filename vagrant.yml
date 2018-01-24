@@ -4,6 +4,9 @@
   remote_user: bxz
   become: yes
   become_user: root
+  vars:
+    vagrant_boxes:
+      - ubuntu/xenial64
   roles:
     - vagrant
 

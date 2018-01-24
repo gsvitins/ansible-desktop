@@ -1,6 +1,6 @@
 ---
 - name: Check current installed vagrant version
-  shell: "dpkg -l | grep vagrant | awk '{ print $3 }' | cut -d: -f2"
+  shell: "dpkg -l | grep vagrant | awk '{ print $3 }' | cut -d: -f2" 
   register: vagrant_installed_version
   ignore_errors: True
 
@@ -13,25 +13,28 @@
   when: vagrant_version  !=  vagrant_installed_version.stdout
 
 - name: Create vagrant directory
-  sudo: no
+  become: no
   file: path={{ vagrant_dir }} state=directory
 
 - name: Copy Vagrantfile
-  sudo: no
+  become: no
   copy: src=Vagrantfile dest={{ vagrant_dir }}/Vagrantfile
 
 - name: Clone ansible-vps git repo into vagrant ansible directory
+  become: no
   git:
-    repo: 'https://github.com/gsvitins/ansible-vps.git'
+    repo: "https://github.com/gsvitins/ansible-vps.git"
     dest: "{{ vagrant_dir }}/ansible"
     force: yes
 
 - name: replace ansible-vps git repo 'site.yml' file with local one
-  sudo: no
+  become: no
   copy:
     src: ansible/site.yml
-    dest: "{{ vagrant_dir}}/ansible/"
+    dest: "{{ vagrant_dir }}/vagrant/ansible/"
 
-  #- name: Add vagrant boxes
-  #command: vagrant box add ubuntu/trusty64 chdir={{ vagrant_dir }}
+- name: Add vagrant boxes
+  become: no
+  command: vagrant box add {{ item }} chdir={{ vagrant_dir }}
+  with_items: "{{ vagrant_boxes }}"
 
