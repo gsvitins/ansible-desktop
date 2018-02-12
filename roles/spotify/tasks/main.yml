@@ -1,12 +1,13 @@
 ---
 - name: Add Spotify repository
-  sudo: yes
+  become: yes
   apt_repository: repo='deb http://repository.spotify.com stable non-free' state=present
 
 - name: Add Spotify public key
-  sudo: yes
-  apt_key: keyserver=keyserver.ubuntu.com id=BBEBDCB318AD50EC6865090613B00F1FD2C19886
+  become: yes
+  apt_key: keyserver=keyserver.ubuntu.com id=0DF731E45CE24F27EEEB1450EFDC8610341D9410
 
 - name: Install Spotify
+  become: yes
   apt: name=spotify-client state=latest update_cache=yes
 

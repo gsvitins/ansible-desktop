@@ -1,17 +1,26 @@
 ---
 - name: Install compton
-  sudo: yes
-  apt: name=compton state=latest
+  become: yes
+  apt:
+    name: compton
+    state: latest
 
 - name: Add compton.conf
-  sudo: no
-  copy: src=compton.conf dest=~/.config/compton.conf
+  become: no
+  copy:
+    src: compton.conf 
+    dest: ~/.config/compton.conf
 
 - name: Create autostart dir
-  sudo: no
-  file: path=~/.config/autostart state=directory mode=0755
+  become: no
+  file:
+    path: ~/.config/autostart 
+    state: directory
+    mode: 0755
 
 - name: Enable compton on xfce session start
-  sudo: no
-  copy: src=compton.desktop dest=~/.config/autostart/compton.desktop
+  become: no
+  copy:
+    src: compton.desktop
+    dest: ~/.config/autostart/compton.desktop
 

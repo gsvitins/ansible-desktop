@@ -1,13 +1,13 @@
 ---
 - name: Remove old dotfiles
-  sudo: no
+  become: no
   file: path=~/git/dotfiles/ state=absent
 
 - name: Clone dotfiles git repo
-  sudo: no
+  become: no
   git: repo=https://github.com/gsvitins/dotfiles.git dest=~/git/dotfiles
 
 - name: Execute dotfiles install script
-  sudo: no
+  become: no
   shell: chdir=~/git/dotfiles ./install.sh
 

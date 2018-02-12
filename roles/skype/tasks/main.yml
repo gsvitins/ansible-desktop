@@ -1,7 +1,18 @@
 ---
-- name: Add Canonical partners repository
-  apt_repository: repo='deb http://archive.canonical.com/ubuntu trusty partner' state=present update_cache=yes
+- name: Add Skype GPG key
+  apt_key:
+    url: https://repo.skype.com/data/SKYPE-GPG-KEY
+  become: yes
+
+- name: Add Skype repo
+  apt_repository:
+    repo: deb https://repo.skype.com/deb stable main
+    state: present
+  become: yes
 
 - name: Install Skype
-  apt: name=skype state=latest
+  apt:
+    name: skypeforlinux
+    state: latest
+  become: yes
 
