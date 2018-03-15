@@ -41,6 +41,7 @@
     - ipython
     - flake8
     - python-flake8
+    - python-pip
     - lm-sensors
     - weechat-curses
     - remmina
