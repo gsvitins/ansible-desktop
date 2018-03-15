@@ -1,6 +1,6 @@
 ---
 - name: provision desktop
-  hosts: lasus
+  hosts: lasusvm
   remote_user: bxz
   become: yes
   become_user: root
@@ -8,17 +8,18 @@
     docker_users: bxz
     terminator_user: bxz
     mount_data_dir: false
+    virtualbox_version: 5.2
   roles:
-    - common
-    - compton
-    - docker
-    - pulseaudio-equalizer
-    - qpdfview
-    - skype
-    - spotify
-    - sshd
-    - terminator
-    - vagrant
+    #    - common
+    #- compton
+    #- docker
+    #- pulseaudio-equalizer
+    #- qpdfview
+    #- skype
+    #- spotify
+    #- sshd
+    #- terminator
+    #- vagrant
     - virtualbox
-    - chbright
+    #- chbright
 
