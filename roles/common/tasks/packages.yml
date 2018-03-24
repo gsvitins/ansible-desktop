@@ -1,6 +1,9 @@
 ---
 - name: Remove unwanted packages
-  apt: name={{ item }} state=absent purge=yes
+  apt:
+    name: "{{ item }}"
+    state: absent
+    purge: yes
   with_items:
     - speech-dispatcher
     - parole
@@ -8,6 +11,7 @@
     - xchat
     - abiword*
     - libabiword*
+    - libreoffice*
     - catfish
     - gimp*
     - libgimp*
@@ -21,15 +25,20 @@
     - evince
 
 - name: Update repositories / upgrade packages
-  apt: update_cache=yes upgrade=dist
+  apt:
+    update_cache: yes
+    upgrade: dist
 
 - name: Install new packages
-  apt: name={{ item }} state=latest
+  apt:
+    name: "{{ item }}"
+    state: latest
   with_items:
     - ansible
     - vim-nox
     - git
     - htop
+    - glances
     - tree
     - tmux
     - curl
@@ -47,6 +56,7 @@
     - vlc
     - mplayer
     - qbittorrent
+    - chromium-browser
     - flashplugin-installer
     - keepass2
     - rar

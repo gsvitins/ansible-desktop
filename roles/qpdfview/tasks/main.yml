@@ -1,7 +1,11 @@
 ---
 - name: Install qpdfview
-  apt: name=qpdfview state=latest
+  apt:
+    name: qpdfview
+    state: latest
 
 - name: Copy qpdfview config files
-  sudo: no
-  copy: src=qpdfview/ dest=~/.config/qpdfview/
+  become: no
+  copy:
+    src: qpdfview/
+    dest: ~/.config/qpdfview/
