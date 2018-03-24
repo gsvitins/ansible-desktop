@@ -50,6 +50,7 @@
     - ipython
     - flake8
     - python-flake8
+    - python-pip
     - lm-sensors
     - weechat-curses
     - remmina
@@ -61,4 +62,5 @@
     - keepass2
     - rar
     - apcalc
+    - glances
 

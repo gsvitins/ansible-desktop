@@ -8,19 +8,31 @@
 - name: Add compton.conf
   become: no
   copy:
+<<<<<<< HEAD
     src: compton.conf
+=======
+    src: compton.conf 
+>>>>>>> e5ad9563e838c2f8a44f6ebadec16991418b17a7
     dest: ~/.config/compton.conf
 
 - name: Create autostart dir
   become: no
   file:
+<<<<<<< HEAD
     path: ~/.config/autostart
+=======
+    path: ~/.config/autostart 
+>>>>>>> e5ad9563e838c2f8a44f6ebadec16991418b17a7
     state: directory
     mode: 0755
 
 - name: Enable compton on xfce session start
   become: no
   copy:
+<<<<<<< HEAD
     src: compton.desktop 
+=======
+    src: compton.desktop
+>>>>>>> e5ad9563e838c2f8a44f6ebadec16991418b17a7
     dest: ~/.config/autostart/compton.desktop
 
