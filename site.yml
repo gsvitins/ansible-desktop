@@ -10,16 +10,17 @@
     mount_data_dir: false
     virtualbox_version: 5.2
   roles:
-    #    - common
-    #- compton
-    #- docker
-    #- pulseaudio-equalizer
-    #- qpdfview
-    #- skype
-    #- spotify
-    #- sshd
-    #- terminator
-    #- vagrant
+    - common
+    - compton
+    - docker
+    - docker-compose
+    - pulseaudio-equalizer
+    - qpdfview
+    - skype
+    - spotify
+    - sshd
+    - terminator
+    - vagrant
     - virtualbox
-    #- chbright
+    - chbright
 
