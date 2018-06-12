@@ -1,6 +1,24 @@
 ---
 - name: add pulseaudio-equalizer repo
   become: yes
+<<<<<<< HEAD
+  apt_repository:
+    repo: 'ppa:nilarimogard/webupd8'
+    state: present
+    update_cache: yes
+
+- name: install pulseaudio-equalizer
+  become: yes
+  apt:
+    name: pulseaudio-equalizer 
+    state: latest
+
+- name: copy my eq preset to pulseaudio-equalizer
+  become: no
+  copy:
+    src: bxz.preset 
+    dest: ~/.config/pulse/presets
+=======
   apt_repository: repo='ppa:nilarimogard/webupd8' state=present update_cache=yes
 
 - name: install pulseaudio-equalizer
@@ -10,3 +28,4 @@
 - name: copy my eq preset to pulseaudio-equalizer
   become: no
   copy: src=bxz.preset dest=~/.config/pulse/presets
+>>>>>>> e5ad9563e838c2f8a44f6ebadec16991418b17a7

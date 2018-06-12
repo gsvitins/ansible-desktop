@@ -1,6 +1,24 @@
 ---
 - name: Add Spotify repository
   become: yes
+<<<<<<< HEAD
+  apt_repository:
+    repo: 'deb http://repository.spotify.com stable non-free' 
+    state: present
+
+- name: Add Spotify public key
+  become: yes
+  apt_key:
+    keyserver: keyserver.ubuntu.com
+    id: BBEBDCB318AD50EC6865090613B00F1FD2C19886
+
+- name: Install Spotify
+  become: yes
+  apt:
+    name: spotify-client
+    state: latest
+    update_cache: yes
+=======
   apt_repository: repo='deb http://repository.spotify.com stable non-free' state=present
 
 - name: Add Spotify public key
@@ -10,4 +28,5 @@
 - name: Install Spotify
   become: yes
   apt: name=spotify-client state=latest update_cache=yes
+>>>>>>> e5ad9563e838c2f8a44f6ebadec16991418b17a7
 
