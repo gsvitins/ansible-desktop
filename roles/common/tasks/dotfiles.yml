@@ -1,22 +1,17 @@
 ---
-- name: Remove old dotfiles
+- name: remove old dotfiles
   become: no
   file:
     path: ~/git/dotfiles/
     state: absent
 
-- name: Clone dotfiles git repo
+- name: clone dotfiles git repo
   become: no
-  git:
+  git: 
     repo: https://github.com/gsvitins/dotfiles.git 
     dest: ~/git/dotfiles
-  file: path=~/git/dotfiles/ state=absent
 
-- name: Clone dotfiles git repo
-  become: no
-  git: repo=https://github.com/gsvitins/dotfiles.git dest=~/git/dotfiles
-
-- name: Execute dotfiles install script
+- name: execute dotfiles install script
   become: no
   shell: chdir=~/git/dotfiles ./install.sh
 
