@@ -9,9 +9,11 @@
     terminator_user: bxz
     mount_data_dir: false
     virtualbox_version: 5.2
+    vagrant_version: 2.1.2
+    
   roles:
     - common
-    - compton
+#    - compton
     - docker
     - docker-compose
     - pulseaudio-equalizer
