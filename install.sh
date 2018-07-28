@@ -54,4 +54,18 @@ ssh-copy-id $HOSTNAME
 ssh-add
 
 # exec ansible-playbook
-ansible-playbook site.yml
+echo -e "Do you want to run site.yml playbook with ansible NOW? (y/n)"
+read -s ansible
+case "$ansible" in
+    yes|Yes|YES|y)
+        ansible-playbook site.yml
+	;;
+    no|No|NO|n)
+        exit 2
+        ;;
+    *)
+        echo "Type 'yes' or 'no'"
+        exit 3
+        ;;
+esac
+
