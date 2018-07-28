@@ -1,6 +1,17 @@
 ---
+- name: check if /etc/rc.local file exists
+  stat:
+    path: /etc/rc.local
+  register: rclocal
+
+- name: create rc.local file if it doesn't exist
+  file:
+    path: /etc/rc.local
+    state: touch
+  when: rclocal.stat.exists == False 
+
 - name: Disable bluetooth adapter on startup
-  lineinfile: dest=/etc/rc.local
-              state=present
-              insertbefore="^exit 0"
-              line="rfkill block bluetooth"
+  lineinfile:
+    path: /etc/rc.local
+    state: present
+    line: "rfkill block bluetooth"

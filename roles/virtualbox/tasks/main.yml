@@ -1,9 +1,4 @@
 ---
-- name: Add Virtualbox repository
-  apt_repository:
-    repo: 'deb http://download.virtualbox.org/virtualbox/debian {{ ansible_distribution_release }} contrib'
-    state: present
-
 - name: Add Virtualbox repository keys
   apt_key:
     url: "{{ item }}"
@@ -11,6 +6,11 @@
   with_items:
     - 'https://www.virtualbox.org/download/oracle_vbox.asc'
     - 'https://www.virtualbox.org/download/oracle_vbox_2016.asc'
+
+- name: Add Virtualbox repository
+  apt_repository:
+    repo: 'deb http://download.virtualbox.org/virtualbox/debian {{ ansible_distribution_release }} contrib'
+    state: present
 
 - name: Install Virtualbox packages
   apt:
