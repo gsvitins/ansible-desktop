@@ -4,30 +4,17 @@
     repo: 'deb http://download.virtualbox.org/virtualbox/debian {{ ansible_distribution_release }} contrib'
     state: present
 
-<<<<<<< HEAD
 - name: Add Virtualbox repository keys
-=======
-- name: Add Virtualbox repository key
->>>>>>> e5ad9563e838c2f8a44f6ebadec16991418b17a7
   apt_key:
     url: "{{ item }}"
     state: present
   with_items:
-<<<<<<< HEAD
     - 'https://www.virtualbox.org/download/oracle_vbox.asc'
     - 'https://www.virtualbox.org/download/oracle_vbox_2016.asc'
 
 - name: Install Virtualbox packages
   apt:
-    name: virtualbox-{{ virtualbox_version }}
-=======
-    - https://www.virtualbox.org/download/oracle_vbox_2016.asc
-    - https://www.virtualbox.org/download/oracle_vbox.asc
-
-- name: Install Virtualbox packages
-  apt:
     name: "virtualbox-{{ virtualbox_version }}"
->>>>>>> e5ad9563e838c2f8a44f6ebadec16991418b17a7
     update_cache: yes
     state: latest
     force: yes
