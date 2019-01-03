@@ -1,0 +1,8 @@
+---
+- name: modify default pulseaudio config to enable equalizer on boot
+  lineinfile:
+    path: /etc/pulse/default.pa
+    line: "{{ item }}"
+  with_items:
+    - load-module module-equalizer-sink
+    - load-module module-dbus-protocol
