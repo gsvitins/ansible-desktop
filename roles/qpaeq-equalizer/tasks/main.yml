@@ -16,8 +16,9 @@
     state: touch
 
 - name: modify pulseaudio config to enable equalizer modules on boot
+  become: no
   lineinfile:
-    path: /etc/pulse/default.pa
+    path: ~/.config/pulse/default.pa
     line: "{{ item }}"
   with_items:
     - load-module module-equalizer-sink

@@ -1,0 +1,10 @@
+---
+- name: install qpaeq-equalizer
+  hosts: all
+  remote_user: bxz
+  become: yes
+  become_user: root
+  roles:
+    - qpaeq-equalizer
+
+
