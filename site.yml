@@ -1,6 +1,6 @@
 ---
 - name: provision desktop
-  hosts: lasusvm
+  hosts: all
   remote_user: bxz
   become: yes
   become_user: root
@@ -15,7 +15,6 @@
     - compton
     - docker
     - docker-compose
-    - pulseaudio-equalizer
     - qpdfview
     - skype
     - spotify
@@ -25,4 +24,5 @@
     - virtualbox
     - chbright
     - qpaeq-equalizer
+    #- pulseaudio-equalizer
 

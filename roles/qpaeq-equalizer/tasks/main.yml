@@ -1,8 +1,25 @@
 ---
-- name: modify default pulseaudio config to enable equalizer on boot
+- name: enable pulseaudio modules (only once)
+  become: no
+  command: "{{ item }}"
+  args:
+    creates: ~/.qpaeq_installed_ansible
+  with_items:
+    - /usr/bin/pactl load-module module-equalizer-sink
+    - /usr/bin/pactl load-module module-dbus-protocol
+  run_once: yes
+
+- name: create ~/.qpaeq_installed_ansible file for first task
+  become: no
+  file:
+    path: ~/.qpaeq_installed_ansible
+    state: touch
+
+- name: modify pulseaudio config to enable equalizer modules on boot
   lineinfile:
     path: /etc/pulse/default.pa
     line: "{{ item }}"
   with_items:
     - load-module module-equalizer-sink
     - load-module module-dbus-protocol
+
