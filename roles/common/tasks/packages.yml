@@ -52,6 +52,7 @@
     - python-flake8
     - python-pip
     - python3-pip
+    - python3-venv
     - lm-sensors
     - weechat-curses
     - remmina
