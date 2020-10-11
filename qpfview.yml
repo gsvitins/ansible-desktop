@@ -1,0 +1,10 @@
+---
+- name: install qpdfview
+  hosts: localhost
+  remote_user: bxz
+  become: yes
+  become_user: root
+  roles:
+    - qpdfview
+
+

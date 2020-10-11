@@ -1,6 +1,6 @@
 ---
 - name: install and configure terminator
-  hosts: all
+  hosts: localhost 
   remote_user: bxz
   vars:
     terminator_user: bxz
