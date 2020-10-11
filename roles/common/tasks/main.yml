@@ -1,8 +1,8 @@
 ---
 - include: packages.yml
-- include: disable-bluetooth.yml
-  #- include: nvidia.yml
-- include: lightdm.yml
 - include: dotfiles.yml
-- include: mounts.yml
 - include: numix.yml
+    #- include: disable-bluetooth.yml
+    #- include: nvidia.yml
+    #- include: lightdm.yml
+#- include: mounts.yml
