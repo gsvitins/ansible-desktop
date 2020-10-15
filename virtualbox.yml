@@ -1,0 +1,9 @@
+---
+- name: install virtualbox
+  hosts: localhost
+  remote_user: bxz
+  become: yes
+  become_user: root
+  roles:
+    - virtualbox
+
