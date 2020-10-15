@@ -35,6 +35,6 @@
 
 - name: Add vagrant boxes
   become: no
-  command: vagrant box add {{ item }} chdir={{ vagrant_dir }}
+  command: vagrant box add --provider virtualbox --no-tty {{ item }} chdir={{ vagrant_dir }}
   with_items: "{{ vagrant_boxes }}"
 
