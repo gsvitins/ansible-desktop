@@ -1,12 +1,15 @@
 ---
 - name: install vagrant
-  hosts: lasus
-  remote_user: bxz
+  hosts: localhost
+  remote_user: gsvitins
   become: yes
   become_user: root
   vars:
+    vagrant_version: "2.2.10"
     vagrant_boxes:
-      - ubuntu/xenial64
+      - ubuntu/bionic64
+      - centos/7
+      - centos/8
   roles:
     - vagrant
 
