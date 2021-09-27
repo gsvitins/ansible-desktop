@@ -5,20 +5,27 @@
   ignore_errors: True
 
 - name: Download vagrant package
-  get_url: url=https://releases.hashicorp.com/vagrant/{{ vagrant_version }}/vagrant_{{ vagrant_version }}_x86_64.deb dest={{ vagrant_dl_dir }}/vagrant_{{ vagrant_version }}_x86_64.deb
+  get_url:
+    url: https://releases.hashicorp.com/vagrant/{{ vagrant_version }}/vagrant_{{ vagrant_version }}_x86_64.deb dest={{ vagrant_dl_dir }}/vagrant_{{ vagrant_version }}_x86_64.deb
   when: vagrant_version  !=  vagrant_installed_version.stdout
 
 - name: Install vagrant
-  apt: deb={{ vagrant_dl_dir }}/vagrant_{{ vagrant_version }}_x86_64.deb
+  apt:
+    deb: {{ vagrant_dl_dir }}/vagrant_{{ vagrant_version }}_x86_64.deb
   when: vagrant_version  !=  vagrant_installed_version.stdout
 
 - name: Create vagrant directory
   become: no
-  file: path={{ vagrant_dir }} state=directory
+  file:
+    path: {{ vagrant_dir }} 
+    state: directory
 
 - name: Copy Vagrantfile
   become: no
-  copy: src=Vagrantfile dest={{ vagrant_dir }}/Vagrantfile
+  copy:
+    src: Vagrantfile
+    dest: {{ vagrant_dir }}/Vagrantfile
+    backup: yes
 
 - name: Clone ansible-vps git repo into vagrant ansible directory
   become: no

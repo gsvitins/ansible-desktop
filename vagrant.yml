@@ -1,11 +1,11 @@
 ---
 - name: install vagrant
   hosts: localhost
-  remote_user: bxz
+  remote_user: gsvitins
   become: yes
   become_user: root
   vars:
-    vagrant_version: 2.2.10
+    vagrant_version: "2.2.10"
     vagrant_boxes:
       - ubuntu/bionic64
       - centos/7
