@@ -1,0 +1,8 @@
+---
+- name: install shutter
+  hosts: localhost
+  remote_user: bxz
+  become: yes
+  become_user: root
+  roles:
+    - shutter

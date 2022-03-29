@@ -1,0 +1,11 @@
+---
+- name: add shutter repository
+  apt_repository:
+    repo: 'ppa:shutter/ppa'
+    state: present
+
+- name: install shutter packages
+  apt:
+    name: shutter
+    state: latest
+
