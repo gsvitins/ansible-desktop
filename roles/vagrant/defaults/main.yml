@@ -1,5 +1,5 @@
 ---
-vagrant_version: "2.2.10"
+vagrant_version: "2.2.19"
 vagrant_dir: "~/vagrant"
 vagrant_dl_dir: "/tmp"
 vagrant_boxes: []

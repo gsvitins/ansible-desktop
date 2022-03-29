@@ -5,7 +5,7 @@
   become: yes
   become_user: root
   vars:
-    vagrant_version: "2.2.10"
+    vagrant_version: "2.2.19"
     vagrant_boxes:
       - ubuntu/bionic64
       - centos/7
