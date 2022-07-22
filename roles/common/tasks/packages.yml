@@ -56,6 +56,7 @@
       - chromium-browser
       - keepass2
       - rar
+      - tldr
 
 - name: Install snap packages
   snap:
@@ -65,5 +66,4 @@
       - code
       - sublime-text
       - remmina
-      - skype
       - spotify

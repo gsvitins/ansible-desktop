@@ -1,6 +1,6 @@
 ---
 - name: install docker
-  hosts: all
+  hosts: localhost
   remote_user: bxz
   become: yes
   become_user: root
