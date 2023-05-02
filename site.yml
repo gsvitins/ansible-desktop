@@ -8,8 +8,7 @@
     docker_users: bxz
     terminator_user: bxz
     mount_data_dir: false
-    virtualbox_version: 6.0
-    vagrant_version: 2.2.19
+    virtualbox_version: 6.1
   roles:
     - common
     - compton

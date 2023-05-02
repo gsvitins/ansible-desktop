@@ -1,48 +1,47 @@
 ---
-- name: Check current installed vagrant version
-  shell: "dpkg -l | grep vagrant | awk '{ print $3 }' | cut -d: -f2" 
-  register: vagrant_installed_version
-  ignore_errors: True
-
-- name: Download vagrant package
+- name: download hashicorp pub key
   get_url:
-    url: "https://releases.hashicorp.com/vagrant/{{ vagrant_version }}/vagrant_{{ vagrant_version }}_x86_64.deb"
-    dest: "{{ vagrant_dl_dir }}/vagrant_{{ vagrant_version }}_x86_64.deb"
-  when: vagrant_version  !=  vagrant_installed_version.stdout
+    url: "https://apt.releases.hashicorp.com/gpg"
+    dest: "/etc/apt/trusted.gpg.d/hashicorp-archive.gpg"
+  become: yes
+  become_user: root
+  tags:
+    - vagrant
 
-- name: Install vagrant
-  apt:
-    deb: "{{ vagrant_dl_dir }}/vagrant_{{ vagrant_version }}_x86_64.deb"
-  when: vagrant_version  !=  vagrant_installed_version.stdout
+- name: add apt repository
+  apt_repository:
+    repo: "deb [signed-by=/etc/apt/trusted.gpg.d/hashicorp-archive.gpg] https://apt.releases.hashicorp.com {{ ansible_distribution_release }} main"
+    update_cache: yes
+  become: yes
+  become_user: root
+  tags:
+    - vagrant
 
-- name: Create vagrant directory
-  become: no
+- name: install vagrant
+  package:
+    name: vagrant
+    state: latest
+  become: yes
+  become_user: root
+  tags:
+    - vagrant
+
+- name: create vagrant homedir
   file:
-    path: "{{ vagrant_dir }}"
+    dest: "{{ ansible_user_dir }}/vagrant"
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
+    mode: 0755
     state: directory
-
-- name: Copy Vagrantfile
   become: no
+  tags:
+    - vagrant
+
+- name: copy Vagrantfile
   copy:
     src: Vagrantfile
-    dest: "{{ vagrant_dir }}/Vagrantfile"
+    dest: "{{ ansible_user_dir }}/vagrant/Vagrantfile"
     backup: yes
-
-- name: Clone ansible-vps git repo into vagrant ansible directory
   become: no
-  git:
-    repo: "https://github.com/gsvitins/ansible-vps.git"
-    dest: "{{ vagrant_dir }}/ansible"
-    force: yes
-
-- name: replace ansible-vps git repo 'site.yml' file with local one
-  become: no
-  copy:
-    src: ansible/site.yml
-    dest: "{{ vagrant_dir }}/vagrant/ansible/"
-
-- name: Add vagrant boxes
-  become: no
-  command: vagrant box add --provider virtualbox --no-tty {{ item }} chdir={{ vagrant_dir }}
-  with_items: "{{ vagrant_boxes }}"
-
+  tags:
+    - vagrant
